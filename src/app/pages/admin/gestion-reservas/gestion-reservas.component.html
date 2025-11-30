@@ -1,0 +1,56 @@
+<div class="gestion-reservas-container">
+  <h1>Gestión de Reservas</h1>
+
+  <nb-card>
+    <nb-card-body>
+      <nb-select placeholder="Filtrar por estado" [(ngModel)]="filtroEstado" fullWidth>
+        <nb-option value="todos">Todas</nb-option>
+        <nb-option value="confirmada">Confirmadas</nb-option>
+        <nb-option value="completada">Completadas</nb-option>
+        <nb-option value="cancelada">Canceladas</nb-option>
+      </nb-select>
+    </nb-card-body>
+  </nb-card>
+
+  <nb-card>
+    <nb-card-header>Reservas ({{ reservasFiltradas.length }})</nb-card-header>
+    <nb-card-body>
+      <div class="tabla-container">
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Cliente</th>
+              <th>Entrenador</th>
+              <th>Deporte</th>
+              <th>Fecha</th>
+              <th>Hora</th>
+              <th>Estado</th>
+              <th>Precio</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let reserva of reservasFiltradas">
+              <td>{{ reserva.id }}</td>
+              <td>{{ reserva.cliente }}</td>
+              <td>{{ reserva.entrenador }}</td>
+              <td>{{ reserva.deporte }}</td>
+              <td>{{ reserva.fecha | date:'dd/MM/yyyy' }}</td>
+              <td>{{ reserva.hora }}</td>
+              <td>
+                <nb-badge [text]="reserva.estado" [status]="getEstadoStatus(reserva.estado)"></nb-badge>
+              </td>
+              <td>{{ formatearMoneda(reserva.precio) }}</td>
+              <td>
+                <button nbButton size="tiny" status="danger" (click)="cancelarReserva(reserva.id)" [disabled]="reserva.estado !== 'confirmada'">
+                  Cancelar
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </nb-card-body>
+  </nb-card>
+</div>

@@ -1,0 +1,61 @@
+<div class="gestion-entrenadores-container">
+  <h1>Gestión de Entrenadores</h1>
+
+  <nb-card>
+    <nb-card-body>
+      <nb-select placeholder="Filtrar por estado" [(ngModel)]="filtroEstado" fullWidth>
+        <nb-option value="todos">Todos</nb-option>
+        <nb-option value="pendiente">Pendientes</nb-option>
+        <nb-option value="aprobado">Aprobados</nb-option>
+        <nb-option value="rechazado">Rechazados</nb-option>
+      </nb-select>
+    </nb-card-body>
+  </nb-card>
+
+  <nb-card>
+    <nb-card-header>
+      Entrenadores ({{ entrenadoresFiltrados.length }})
+    </nb-card-header>
+    <nb-card-body>
+      <div class="entrenadores-list">
+        <div *ngFor="let entrenador of entrenadoresFiltrados" class="entrenador-item">
+          <div class="entrenador-header">
+            <img [src]="entrenador.avatar" [alt]="entrenador.nombre" class="avatar">
+            <div class="entrenador-info">
+              <h3>{{ entrenador.nombre }}</h3>
+              <p>{{ entrenador.email }}</p>
+              <nb-badge [text]="entrenador.estado" [status]="getEstadoStatus(entrenador.estado)"></nb-badge>
+            </div>
+          </div>
+          <div class="entrenador-details">
+            <div class="detail-item">
+              <strong>Especialidades:</strong>
+              <div class="especialidades-tags">
+                <nb-badge *ngFor="let esp of entrenador.especialidades" [text]="esp" status="info"></nb-badge>
+              </div>
+            </div>
+            <div class="detail-item">
+              <strong>Certificaciones:</strong> {{ entrenador.certificaciones }}
+            </div>
+            <div class="detail-item">
+              <strong>Experiencia:</strong> {{ entrenador.experiencia }} años
+            </div>
+            <div class="detail-item">
+              <strong>Fecha Solicitud:</strong> {{ entrenador.fechaSolicitud | date:'dd/MM/yyyy' }}
+            </div>
+          </div>
+          <div class="entrenador-acciones" *ngIf="entrenador.estado === 'pendiente'">
+            <button nbButton status="success" size="small" (click)="aprobar(entrenador.id)">
+              <nb-icon icon="checkmark-circle-outline"></nb-icon>
+              Aprobar
+            </button>
+            <button nbButton status="danger" size="small" (click)="rechazar(entrenador.id)">
+              <nb-icon icon="close-circle-outline"></nb-icon>
+              Rechazar
+            </button>
+          </div>
+        </div>
+      </div>
+    </nb-card-body>
+  </nb-card>
+</div>

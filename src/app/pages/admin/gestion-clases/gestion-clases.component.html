@@ -1,0 +1,45 @@
+<div class="gestion-clases-container">
+  <h1>Gestión de Clases</h1>
+
+  <nb-card>
+    <nb-card-body>
+      <nb-select placeholder="Filtrar por estado" [(ngModel)]="filtroEstado" fullWidth>
+        <nb-option value="todos">Todas</nb-option>
+        <nb-option value="pendiente">Pendientes</nb-option>
+        <nb-option value="aprobada">Aprobadas</nb-option>
+        <nb-option value="rechazada">Rechazadas</nb-option>
+      </nb-select>
+    </nb-card-body>
+  </nb-card>
+
+  <nb-card>
+    <nb-card-header>Clases ({{ clasesFiltradas.length }})</nb-card-header>
+    <nb-card-body>
+      <div class="clases-grid">
+        <nb-card *ngFor="let clase of clasesFiltradas">
+          <nb-card-body>
+            <div class="clase-header">
+              <h3>{{ clase.nombre }}</h3>
+              <nb-badge [text]="clase.estado" [status]="getEstadoStatus(clase.estado)"></nb-badge>
+            </div>
+            <div class="clase-info">
+              <p><strong>Entrenador:</strong> {{ clase.entrenador }}</p>
+              <p><strong>Deporte:</strong> {{ clase.deporte }}</p>
+              <p><strong>Modalidad:</strong> {{ clase.modalidad }}</p>
+              <p><strong>Cupo:</strong> {{ clase.cupo }} personas</p>
+              <p><strong>Precio:</strong> {{ formatearMoneda(clase.precio) }}</p>
+            </div>
+            <div class="clase-acciones" *ngIf="clase.estado === 'pendiente'">
+              <button nbButton status="success" size="small" (click)="aprobar(clase.id)">
+                <nb-icon icon="checkmark-outline"></nb-icon> Aprobar
+              </button>
+              <button nbButton status="danger" size="small" (click)="rechazar(clase.id)">
+                <nb-icon icon="close-outline"></nb-icon> Rechazar
+              </button>
+            </div>
+          </nb-card-body>
+        </nb-card>
+      </div>
+    </nb-card-body>
+  </nb-card>
+</div>
