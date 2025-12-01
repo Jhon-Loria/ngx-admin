@@ -48,6 +48,18 @@ export class ErrorInterceptor implements HttpInterceptor {
             case 500:
               errorMessage = 'Error interno del servidor. Por favor, intenta más tarde.';
               break;
+            case 504:
+              // Gateway Timeout - generalmente significa que no hay backend disponible
+              // No mostrar error, el componente manejará con datos mock
+              shouldShowToast = false;
+              console.warn('Backend no disponible (Gateway Timeout), usando datos mock:', req.url);
+              break;
+            case 502:
+            case 503:
+              // Bad Gateway o Service Unavailable - no hay backend disponible
+              shouldShowToast = false;
+              console.warn('Backend no disponible, usando datos mock:', req.url);
+              break;
             case 0:
               // Error de conexión (CORS, servidor no disponible, etc.)
               // No mostrar error si no hay backend disponible
@@ -55,7 +67,14 @@ export class ErrorInterceptor implements HttpInterceptor {
               console.warn('Backend no disponible, usando datos mock:', req.url);
               break;
             default:
-              errorMessage = error.error?.message || `Error ${error.status}: ${error.statusText}`;
+              // Solo mostrar errores críticos (no 5xx de servidor no disponible)
+              if (error.status >= 500 && error.status < 600) {
+                // Errores del servidor, pero no críticos si no hay backend
+                shouldShowToast = false;
+                console.warn('Error del servidor, usando datos mock:', req.url, error.status);
+              } else {
+                errorMessage = error.error?.message || `Error ${error.status}: ${error.statusText}`;
+              }
           }
         }
 

@@ -56,6 +56,27 @@ import { of } from 'rxjs';
           </div>
 
           <div style="margin-bottom: 20px;">
+            <label style="display: block; margin-bottom: 5px; font-weight: 500; color: #2c3e50;">Entrar como *</label>
+            <div style="display: flex; gap: 15px; flex-wrap: wrap;">
+              <label style="display: flex; align-items: center; cursor: pointer; padding: 10px; border: 2px solid #e4e9f2; border-radius: 4px; flex: 1; min-width: 100px; transition: all 0.3s;" [style.border-color]="form.get('rol')?.value === 'CLIENTE' ? '#667eea' : '#e4e9f2'" [style.background]="form.get('rol')?.value === 'CLIENTE' ? '#f0f4ff' : 'white'">
+                <input type="radio" formControlName="rol" value="CLIENTE" style="margin-right: 8px;" />
+                <span>Cliente</span>
+              </label>
+              <label style="display: flex; align-items: center; cursor: pointer; padding: 10px; border: 2px solid #e4e9f2; border-radius: 4px; flex: 1; min-width: 100px; transition: all 0.3s;" [style.border-color]="form.get('rol')?.value === 'ENTRENADOR' ? '#667eea' : '#e4e9f2'" [style.background]="form.get('rol')?.value === 'ENTRENADOR' ? '#f0f4ff' : 'white'">
+                <input type="radio" formControlName="rol" value="ENTRENADOR" style="margin-right: 8px;" />
+                <span>Entrenador</span>
+              </label>
+              <label style="display: flex; align-items: center; cursor: pointer; padding: 10px; border: 2px solid #e4e9f2; border-radius: 4px; flex: 1; min-width: 100px; transition: all 0.3s;" [style.border-color]="form.get('rol')?.value === 'ADMIN' ? '#667eea' : '#e4e9f2'" [style.background]="form.get('rol')?.value === 'ADMIN' ? '#f0f4ff' : 'white'">
+                <input type="radio" formControlName="rol" value="ADMIN" style="margin-right: 8px;" />
+                <span>Administrador</span>
+              </label>
+            </div>
+            <small style="color: red; font-size: 0.85rem;" *ngIf="form.get('rol')?.invalid && form.get('rol')?.touched">
+              <span *ngIf="form.get('rol')?.errors?.['required']">Debes seleccionar un rol</span>
+            </small>
+          </div>
+
+          <div style="margin-bottom: 20px;">
             <label style="display: flex; align-items: center; cursor: pointer;">
               <input type="checkbox" formControlName="recordar" style="margin-right: 8px;" />
               <span>Recordar sesión</span>
@@ -98,10 +119,12 @@ export class LoginComponent implements OnInit {
   ) {
     // Inicializar formulario en el constructor para evitar problemas de timing
     // Ahora tenemos campos separados para email y nombre de usuario
+    // Y un selector de rol para elegir cómo entrar
     this.form = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
       nombreUsuario: ['', [Validators.required]],
       contrasena: ['', [Validators.required, Validators.minLength(6)]],
+      rol: ['CLIENTE', [Validators.required]], // Selector de rol: CLIENTE, ENTRENADOR o ADMIN
       recordar: [false]
     });
   }
@@ -184,20 +207,10 @@ export class LoginComponent implements OnInit {
     // Obtener email y nombre de usuario del formulario
     const email = this.form.value.email.trim();
     const nombreUsuario = this.form.value.nombreUsuario.trim();
-    const emailLower = email.toLowerCase();
-    const nombreUsuarioLower = nombreUsuario.toLowerCase();
-    let role = 'CLIENTE';
-    
-    // Detectar rol por email o nombre de usuario (para desarrollo)
-    if (emailLower.includes('entrenador') || emailLower.includes('trainer') || 
-        nombreUsuarioLower.includes('entrenador') || nombreUsuarioLower.includes('trainer')) {
-      role = 'ENTRENADOR';
-    } else if (emailLower.includes('admin') || emailLower.includes('administrador') ||
-               nombreUsuarioLower.includes('admin') || nombreUsuarioLower.includes('administrador')) {
-      role = 'ADMIN';
-    }
+    // Usar el rol seleccionado en el formulario
+    const role = this.form.value.rol || 'CLIENTE';
 
-    // Crear token mock con email y nombre de usuario
+    // Crear token mock con email, nombre de usuario y el rol seleccionado
     const mockToken = this.createMockToken(email, nombreUsuario, role);
     localStorage.setItem('fit_token', mockToken);
     
