@@ -1,0 +1,59 @@
+.gestion-clases-container {
+  h1 {
+    margin-bottom: 2rem;
+    color: #222b45;
+  }
+}
+
+.clases-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.clase-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+
+  h3 {
+    margin: 0;
+    color: #222b45;
+    flex: 1;
+  }
+}
+
+.clase-info {
+  p {
+    margin: 0.5rem 0;
+    color: #8f9bb3;
+    font-size: 0.875rem;
+
+    strong {
+      color: #222b45;
+    }
+  }
+}
+
+.clase-acciones {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid #edf1f7;
+
+  button {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .clases-grid {
+    grid-template-columns: 1fr;
+  }
+}

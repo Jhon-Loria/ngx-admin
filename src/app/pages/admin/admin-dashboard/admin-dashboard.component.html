@@ -1,0 +1,111 @@
+<div class="dashboard-container">
+  <h1>Panel de Administración</h1>
+
+  <!-- Métricas principales -->
+  <div class="metricas-grid">
+    <nb-card *ngFor="let metrica of metricas" class="metric-card" [style.border-top]="'4px solid ' + metrica.color" [routerLink]="metrica.ruta">
+      <nb-card-body>
+        <div class="metric-content">
+          <div class="metric-icon" [style.background]="metrica.color">
+            <nb-icon [icon]="metrica.icono"></nb-icon>
+          </div>
+          <div class="metric-info">
+            <h3>{{ metrica.valor | number }}</h3>
+            <p>{{ metrica.titulo }}</p>
+            <span class="cambio" [style.color]="metrica.color">{{ metrica.cambio }}</span>
+          </div>
+        </div>
+      </nb-card-body>
+    </nb-card>
+  </div>
+
+  <!-- Gráficas de actividad -->
+  <div class="row">
+    <div class="col-md-7">
+      <nb-card>
+        <nb-card-header>Actividad de la Plataforma</nb-card-header>
+        <nb-card-body>
+          <div class="charts-container">
+            <div class="chart-section">
+              <h4>Usuarios</h4>
+              <div class="chart-bars">
+                <div *ngFor="let est of estadisticasActividad" class="bar-container">
+                  <div class="bar-value">{{ est.usuarios }}</div>
+                  <div class="bar-wrapper">
+                    <div class="bar-fill usuarios" [style.height.%]="getBarHeight(est.usuarios, getMaxValor('usuarios'))"></div>
+                  </div>
+                  <div class="bar-label">{{ est.mes }}</div>
+                </div>
+              </div>
+            </div>
+            <div class="chart-section">
+              <h4>Sesiones</h4>
+              <div class="chart-bars">
+                <div *ngFor="let est of estadisticasActividad" class="bar-container">
+                  <div class="bar-value">{{ est.sesiones }}</div>
+                  <div class="bar-wrapper">
+                    <div class="bar-fill sesiones" [style.height.%]="getBarHeight(est.sesiones, getMaxValor('sesiones'))"></div>
+                  </div>
+                  <div class="bar-label">{{ est.mes }}</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </nb-card-body>
+      </nb-card>
+    </div>
+
+    <div class="col-md-5">
+      <nb-card>
+        <nb-card-header>
+          Aprobaciones Pendientes
+          <nb-badge [text]="aprobacionesPendientes.length.toString()" status="warning"></nb-badge>
+        </nb-card-header>
+        <nb-card-body>
+          <div class="aprobaciones-list">
+            <div *ngFor="let aprobacion of aprobacionesPendientes" class="aprobacion-item">
+              <div class="aprobacion-info">
+                <nb-badge [text]="aprobacion.tipo" status="info"></nb-badge>
+                <strong>{{ aprobacion.nombre }}</strong>
+                <span class="fecha">{{ aprobacion.fecha | date:'short' }}</span>
+              </div>
+              <div class="aprobacion-acciones">
+                <button nbButton size="small" status="success" (click)="aprobar(aprobacion.id)">
+                  <nb-icon icon="checkmark-outline"></nb-icon>
+                </button>
+                <button nbButton size="small" status="danger" (click)="rechazar(aprobacion.id)">
+                  <nb-icon icon="close-outline"></nb-icon>
+                </button>
+              </div>
+            </div>
+          </div>
+        </nb-card-body>
+      </nb-card>
+    </div>
+  </div>
+
+  <!-- Acciones rápidas -->
+  <nb-card>
+    <nb-card-header>Acciones Rápidas</nb-card-header>
+    <nb-card-body>
+      <div class="acciones-grid">
+        <button nbButton status="primary" routerLink="/pages/admin/usuarios">
+          <nb-icon icon="person-add-outline"></nb-icon>
+          Nuevo Usuario
+        </button>
+        <button nbButton status="success" routerLink="/pages/admin/entrenadores">
+          <nb-icon icon="star-outline"></nb-icon>
+          Aprobar Entrenador
+        </button>
+        <button nbButton status="warning" routerLink="/pages/admin/reportes">
+          <nb-icon icon="bar-chart-outline"></nb-icon>
+          Ver Reportes
+        </button>
+        <button nbButton status="info" routerLink="/pages/admin/deportes">
+          <nb-icon icon="settings-outline"></nb-icon>
+          Configurar Deportes
+        </button>
+      </div>
+    </nb-card-body>
+  </nb-card>
+</div>

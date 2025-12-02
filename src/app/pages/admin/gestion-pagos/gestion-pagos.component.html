@@ -1,0 +1,75 @@
+<div class="gestion-pagos-container">
+  <h1>Gestión de Pagos</h1>
+
+  <div class="metricas-grid">
+    <nb-card>
+      <nb-card-body class="stat-card">
+        <div class="stat-content">
+          <nb-icon icon="credit-card-outline" class="stat-icon"></nb-icon>
+          <div class="stat-info">
+            <div class="stat-value">{{ formatearMoneda(totalIngresos) }}</div>
+            <div class="stat-label">Ingresos Totales</div>
+          </div>
+        </div>
+      </nb-card-body>
+    </nb-card>
+    <nb-card>
+      <nb-card-body class="stat-card">
+        <div class="stat-content">
+          <nb-icon icon="trending-up-outline" class="stat-icon"></nb-icon>
+          <div class="stat-info">
+            <div class="stat-value">{{ formatearMoneda(totalComisiones) }}</div>
+            <div class="stat-label">Comisiones Plataforma</div>
+          </div>
+        </div>
+      </nb-card-body>
+    </nb-card>
+    <nb-card>
+      <nb-card-body class="stat-card">
+        <div class="stat-content">
+          <nb-icon icon="checkmark-circle-outline" class="stat-icon"></nb-icon>
+          <div class="stat-info">
+            <div class="stat-value">{{ pagosCompletados }}</div>
+            <div class="stat-label">Pagos Completados</div>
+          </div>
+        </div>
+      </nb-card-body>
+    </nb-card>
+  </div>
+
+  <nb-card>
+    <nb-card-header>Historial de Pagos ({{ pagos.length }})</nb-card-header>
+    <nb-card-body>
+      <div class="tabla-container">
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Cliente</th>
+              <th>Entrenador</th>
+              <th>Monto</th>
+              <th>Comisión</th>
+              <th>Fecha</th>
+              <th>Método</th>
+              <th>Estado</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let pago of pagos">
+              <td>{{ pago.id }}</td>
+              <td>{{ pago.cliente }}</td>
+              <td>{{ pago.entrenador }}</td>
+              <td>{{ formatearMoneda(pago.monto) }}</td>
+              <td>{{ formatearMoneda(pago.comision) }}</td>
+              <td>{{ pago.fecha | date:'dd/MM/yyyy' }}</td>
+              <td>{{ pago.metodo }}</td>
+              <td>
+                <nb-badge [text]="pago.estado" [status]="getEstadoStatus(pago.estado)"></nb-badge>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </nb-card-body>
+  </nb-card>
+</div>

@@ -1,0 +1,73 @@
+<div class="gestion-deportes-container">
+  <h1>Gestión de Deportes</h1>
+
+  <nb-card>
+    <nb-card-header>
+      {{ editando ? 'Editar Deporte' : 'Nuevo Deporte' }}
+    </nb-card-header>
+    <nb-card-body>
+      <form [formGroup]="deporteForm" (ngSubmit)="guardarDeporte()">
+        <div class="form-grid">
+          <div class="form-group">
+            <label>Nombre</label>
+            <input nbInput fullWidth placeholder="Ej: Yoga" formControlName="nombre">
+          </div>
+          <div class="form-group">
+            <label>Categoría</label>
+            <nb-select fullWidth placeholder="Selecciona categoría" formControlName="categoria">
+              <nb-option *ngFor="let cat of categorias" [value]="cat">{{ cat }}</nb-option>
+            </nb-select>
+          </div>
+          <div class="form-group">
+            <label>Icono (Nebular)</label>
+            <input nbInput fullWidth placeholder="Ej: heart-outline" formControlName="icono">
+          </div>
+          <div class="form-group">
+            <label>
+              <nb-checkbox formControlName="activo">Activo</nb-checkbox>
+            </label>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Descripción</label>
+          <textarea nbInput fullWidth rows="3" placeholder="Describe el deporte..." formControlName="descripcion"></textarea>
+        </div>
+        <div class="form-actions">
+          <button nbButton type="submit" status="primary" [disabled]="!deporteForm.valid">
+            {{ editando ? 'Actualizar' : 'Crear' }}
+          </button>
+          <button nbButton type="button" status="basic" (click)="nuevoDeporte()">Cancelar</button>
+        </div>
+      </form>
+    </nb-card-body>
+  </nb-card>
+
+  <nb-card>
+    <nb-card-header>Deportes Disponibles ({{ deportes.length }})</nb-card-header>
+    <nb-card-body>
+      <div class="deportes-grid">
+        <nb-card *ngFor="let deporte of deportes" [class.inactive]="!deporte.activo">
+          <nb-card-body>
+            <div class="deporte-header">
+              <nb-icon [icon]="deporte.icono" class="deporte-icon"></nb-icon>
+              <h3>{{ deporte.nombre }}</h3>
+            </div>
+            <nb-badge [text]="deporte.categoria" status="info"></nb-badge>
+            <p>{{ deporte.descripcion }}</p>
+            <div class="deporte-acciones">
+              <nb-toggle [(checked)]="deporte.activo" (checkedChange)="toggleActivo(deporte.id)">
+                {{ deporte.activo ? 'Activo' : 'Inactivo' }}
+              </nb-toggle>
+              <button nbButton size="small" status="info" (click)="editarDeporte(deporte)">
+                <nb-icon icon="edit-outline"></nb-icon>
+              </button>
+              <button nbButton size="small" status="danger" (click)="eliminarDeporte(deporte.id)">
+                <nb-icon icon="trash-2-outline"></nb-icon>
+              </button>
+            </div>
+          </nb-card-body>
+        </nb-card>
+      </div>
+    </nb-card-body>
+  </nb-card>
+</div>

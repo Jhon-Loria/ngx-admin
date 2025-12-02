@@ -1,0 +1,94 @@
+<div class="reportes-container">
+  <h1>Reportes y Analíticas</h1>
+
+  <div class="acciones-header">
+    <button nbButton status="primary" (click)="exportarPDF()">
+      <nb-icon icon="download-outline"></nb-icon>
+      Exportar PDF
+    </button>
+    <button nbButton status="success" (click)="exportarExcel()">
+      <nb-icon icon="file-text-outline"></nb-icon>
+      Exportar Excel
+    </button>
+  </div>
+
+  <div class="kpis-grid">
+    <nb-card>
+      <nb-card-body class="kpi-card">
+        <div class="kpi-value">+{{ kpis.crecimientoUsuarios }}%</div>
+        <div class="kpi-label">Crecimiento Usuarios</div>
+      </nb-card-body>
+    </nb-card>
+    <nb-card>
+      <nb-card-body class="kpi-card">
+        <div class="kpi-value">{{ kpis.tasaRetencion }}%</div>
+        <div class="kpi-label">Tasa de Retención</div>
+      </nb-card-body>
+    </nb-card>
+    <nb-card>
+      <nb-card-body class="kpi-card">
+        <div class="kpi-value">{{ kpis.satisfaccionPromedio }}/5</div>
+        <div class="kpi-label">Satisfacción Promedio</div>
+      </nb-card-body>
+    </nb-card>
+    <nb-card>
+      <nb-card-body class="kpi-card">
+        <div class="kpi-value">{{ formatearMoneda(kpis.ingresosPromedio) }}</div>
+        <div class="kpi-label">Ingresos Promedio</div>
+      </nb-card-body>
+    </nb-card>
+  </div>
+
+  <div class="row">
+    <div class="col-lg-4">
+      <nb-card>
+        <nb-card-header>Usuarios</nb-card-header>
+        <nb-card-body>
+          <div class="chart-bars">
+            <div *ngFor="let est of estadisticas" class="bar-container">
+              <div class="bar-value">{{ est.usuarios }}</div>
+              <div class="bar-wrapper">
+                <div class="bar-fill usuarios" [style.height.%]="getBarHeight(est.usuarios, getMaxValor('usuarios'))"></div>
+              </div>
+              <div class="bar-label">{{ est.periodo }}</div>
+            </div>
+          </div>
+        </nb-card-body>
+      </nb-card>
+    </div>
+
+    <div class="col-lg-4">
+      <nb-card>
+        <nb-card-header>Sesiones</nb-card-header>
+        <nb-card-body>
+          <div class="chart-bars">
+            <div *ngFor="let est of estadisticas" class="bar-container">
+              <div class="bar-value">{{ est.sesiones }}</div>
+              <div class="bar-wrapper">
+                <div class="bar-fill sesiones" [style.height.%]="getBarHeight(est.sesiones, getMaxValor('sesiones'))"></div>
+              </div>
+              <div class="bar-label">{{ est.periodo }}</div>
+            </div>
+          </div>
+        </nb-card-body>
+      </nb-card>
+    </div>
+
+    <div class="col-lg-4">
+      <nb-card>
+        <nb-card-header>Ingresos</nb-card-header>
+        <nb-card-body>
+          <div class="chart-bars">
+            <div *ngFor="let est of estadisticas" class="bar-container">
+              <div class="bar-value">{{ formatearMoneda(est.ingresos) }}</div>
+              <div class="bar-wrapper">
+                <div class="bar-fill ingresos" [style.height.%]="getBarHeight(est.ingresos, getMaxValor('ingresos'))"></div>
+              </div>
+              <div class="bar-label">{{ est.periodo }}</div>
+            </div>
+          </div>
+        </nb-card-body>
+      </nb-card>
+    </div>
+  </div>
+</div>

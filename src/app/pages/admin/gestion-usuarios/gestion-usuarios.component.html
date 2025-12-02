@@ -1,0 +1,55 @@
+<div class="gestion-usuarios-container">
+  <h1>Gestión de Usuarios</h1>
+
+  <nb-card>
+    <nb-card-body>
+      <div class="filtros-container">
+        <input nbInput fullWidth placeholder="Buscar por nombre o email..." [(ngModel)]="filtro">
+        <nb-select placeholder="Rol" [(ngModel)]="rolSeleccionado">
+          <nb-option value="todos">Todos</nb-option>
+          <nb-option value="cliente">Clientes</nb-option>
+          <nb-option value="entrenador">Entrenadores</nb-option>
+          <nb-option value="admin">Administradores</nb-option>
+        </nb-select>
+        <nb-select placeholder="Estado" [(ngModel)]="estadoSeleccionado">
+          <nb-option value="todos">Todos</nb-option>
+          <nb-option value="activo">Activos</nb-option>
+          <nb-option value="inactivo">Inactivos</nb-option>
+        </nb-select>
+      </div>
+    </nb-card-body>
+  </nb-card>
+
+  <nb-card>
+    <nb-card-header>
+      Usuarios ({{ usuariosFiltrados.length }})
+    </nb-card-header>
+    <nb-card-body>
+      <div class="usuarios-list">
+        <div *ngFor="let usuario of usuariosFiltrados" class="usuario-item">
+          <div class="usuario-info">
+            <img [src]="usuario.avatar" [alt]="usuario.nombre" class="avatar">
+            <div class="usuario-datos">
+              <h4>{{ usuario.nombre }}</h4>
+              <p>{{ usuario.email }}</p>
+              <div class="usuario-meta">
+                <nb-badge [text]="usuario.rol" [status]="usuario.rol === 'admin' ? 'danger' : usuario.rol === 'entrenador' ? 'success' : 'info'"></nb-badge>
+                <span class="fecha">Registro: {{ usuario.fechaRegistro | date:'dd/MM/yyyy' }}</span>
+              </div>
+            </div>
+          </div>
+          <div class="usuario-acciones">
+            <nb-toggle [(checked)]="usuario.activo" (checkedChange)="toggleActivo(usuario.id)">
+              {{ usuario.activo ? 'Activo' : 'Inactivo' }}
+            </nb-toggle>
+            <nb-select [(ngModel)]="usuario.rol" (ngModelChange)="cambiarRol(usuario.id, $event)">
+              <nb-option value="cliente">Cliente</nb-option>
+              <nb-option value="entrenador">Entrenador</nb-option>
+              <nb-option value="admin">Admin</nb-option>
+            </nb-select>
+          </div>
+        </div>
+      </div>
+    </nb-card-body>
+  </nb-card>
+</div>

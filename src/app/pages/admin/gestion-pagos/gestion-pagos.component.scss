@@ -1,0 +1,97 @@
+.gestion-pagos-container {
+  h1 {
+    margin-bottom: 2rem;
+    color: #222b45;
+  }
+}
+
+.metricas-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.stat-card {
+  padding: 1.5rem;
+}
+
+.stat-content {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.stat-icon {
+  font-size: 3rem;
+  color: #3366ff;
+}
+
+.stat-info {
+  flex: 1;
+}
+
+.stat-value {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #222b45;
+}
+
+.stat-label {
+  font-size: 0.875rem;
+  color: #8f9bb3;
+  margin-top: 0.25rem;
+}
+
+.tabla-container {
+  overflow-x: auto;
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+
+    thead {
+      background: #f7f9fc;
+
+      th {
+        padding: 1rem;
+        text-align: left;
+        font-weight: 600;
+        color: #222b45;
+        border-bottom: 2px solid #edf1f7;
+      }
+    }
+
+    tbody {
+      tr {
+        border-bottom: 1px solid #edf1f7;
+        transition: background 0.2s;
+
+        &:hover {
+          background: #f7f9fc;
+        }
+
+        td {
+          padding: 1rem;
+          color: #8f9bb3;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .metricas-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .tabla-container {
+    font-size: 0.875rem;
+
+    table {
+      th, td {
+        padding: 0.5rem;
+      }
+    }
+  }
+}
