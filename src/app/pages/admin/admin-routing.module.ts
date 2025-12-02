@@ -12,13 +12,20 @@ import { ReportesComponent } from './reportes/reportes.component';
 const routes: Routes = [
   { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
   { path: 'dashboard', component: AdminDashboardComponent },
-  { path: 'usuarios', component: GestionUsuariosComponent },
-  { path: 'entrenadores', component: GestionEntrenadoresComponent },
-  { path: 'deportes', component: GestionDeportesComponent },
-  { path: 'reservas', component: GestionReservasComponent },
-  { path: 'clases', component: GestionClasesComponent },
-  { path: 'pagos', component: GestionPagosComponent },
-  { path: 'reportes', component: ReportesComponent }
+  { path: 'gestion-usuarios', component: GestionUsuariosComponent },
+  { path: 'gestion-entrenadores', component: GestionEntrenadoresComponent },
+  { path: 'gestion-deportes', component: GestionDeportesComponent },
+  { path: 'gestion-reservas', component: GestionReservasComponent },
+  { path: 'gestion-clases', component: GestionClasesComponent },
+  { path: 'gestion-pagos', component: GestionPagosComponent },
+  { path: 'reportes', component: ReportesComponent },
+  // Redirecciones para mantener compatibilidad con rutas cortas
+  { path: 'usuarios', redirectTo: 'gestion-usuarios', pathMatch: 'full' },
+  { path: 'entrenadores', redirectTo: 'gestion-entrenadores', pathMatch: 'full' },
+  { path: 'deportes', redirectTo: 'gestion-deportes', pathMatch: 'full' },
+  { path: 'reservas', redirectTo: 'gestion-reservas', pathMatch: 'full' },
+  { path: 'clases', redirectTo: 'gestion-clases', pathMatch: 'full' },
+  { path: 'pagos', redirectTo: 'gestion-pagos', pathMatch: 'full' }
 ];
 
 @NgModule({
