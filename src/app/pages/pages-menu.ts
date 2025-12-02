@@ -131,6 +131,11 @@ const ADMIN_MENU: NbMenuItem[] = [
     link: '/pages/admin/gestion-pagos',
   },
   {
+    title: 'Gestión de Catálogos',
+    icon: 'book-outline',
+    link: '/pages/admin/gestion-catalogos',
+  },
+  {
     title: 'Reportes',
     icon: 'bar-chart-outline',
     link: '/pages/admin/reportes',

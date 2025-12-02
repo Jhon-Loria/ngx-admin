@@ -7,6 +7,7 @@ import { GestionDeportesComponent } from './gestion-deportes/gestion-deportes.co
 import { GestionReservasComponent } from './gestion-reservas/gestion-reservas.component';
 import { GestionClasesComponent } from './gestion-clases/gestion-clases.component';
 import { GestionPagosComponent } from './gestion-pagos/gestion-pagos.component';
+import { GestionCatalogosComponent } from './gestion-catalogos/gestion-catalogos.component';
 import { ReportesComponent } from './reportes/reportes.component';
 
 const routes: Routes = [
@@ -18,6 +19,7 @@ const routes: Routes = [
   { path: 'gestion-reservas', component: GestionReservasComponent },
   { path: 'gestion-clases', component: GestionClasesComponent },
   { path: 'gestion-pagos', component: GestionPagosComponent },
+  { path: 'gestion-catalogos', component: GestionCatalogosComponent },
   { path: 'reportes', component: ReportesComponent },
   // Redirecciones para mantener compatibilidad con rutas cortas
   { path: 'usuarios', redirectTo: 'gestion-usuarios', pathMatch: 'full' },

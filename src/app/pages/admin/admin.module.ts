@@ -10,6 +10,7 @@ import { GestionDeportesComponent } from './gestion-deportes/gestion-deportes.co
 import { GestionReservasComponent } from './gestion-reservas/gestion-reservas.component';
 import { GestionClasesComponent } from './gestion-clases/gestion-clases.component';
 import { GestionPagosComponent } from './gestion-pagos/gestion-pagos.component';
+import { GestionCatalogosComponent } from './gestion-catalogos/gestion-catalogos.component';
 import { ReportesComponent } from './reportes/reportes.component';
 
 import { 
@@ -28,7 +29,9 @@ import {
   NbDialogModule,
   NbToggleModule,
   NbUserModule,
-  NbDatepickerModule
+  NbDatepickerModule,
+  NbSpinnerModule,
+  NbToastrModule
 } from '@nebular/theme';
 
 @NgModule({
@@ -40,6 +43,7 @@ import {
     GestionReservasComponent,
     GestionClasesComponent,
     GestionPagosComponent,
+    GestionCatalogosComponent,
     ReportesComponent
   ],
   imports: [
@@ -62,7 +66,9 @@ import {
     NbDialogModule.forChild(),
     NbToggleModule,
     NbUserModule,
-    NbDatepickerModule
+    NbDatepickerModule,
+    NbSpinnerModule,
+    NbToastrModule.forRoot()
   ]
 })
 export class AdminModule { }
