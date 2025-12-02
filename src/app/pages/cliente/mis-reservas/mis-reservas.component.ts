@@ -41,7 +41,7 @@ export class MisReservasComponent implements OnInit {
       numero_reserva: 'RSV-ABC123',
       entrenador: {
         nombre: 'Ana Pérez García',
-        foto_url: 'assets/images/avatar-default.png',
+        foto_url: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&h=200&fit=crop&crop=face',
         especialidad: 'Yoga & Pilates'
       },
       fecha: new Date(2025, 10, 20),
@@ -58,7 +58,7 @@ export class MisReservasComponent implements OnInit {
       numero_reserva: 'RSV-DEF456',
       entrenador: {
         nombre: 'Carlos Ruiz López',
-        foto_url: 'assets/images/avatar-default.png',
+        foto_url: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&h=200&fit=crop&crop=face',
         especialidad: 'CrossFit & Funcional'
       },
       fecha: new Date(2025, 10, 15),
@@ -74,7 +74,7 @@ export class MisReservasComponent implements OnInit {
       numero_reserva: 'RSV-GHI789',
       entrenador: {
         nombre: 'María González',
-        foto_url: 'assets/images/avatar-default.png',
+        foto_url: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=200&h=200&fit=crop&crop=face',
         especialidad: 'Running & Atletismo'
       },
       fecha: new Date(2025, 10, 5),
@@ -91,7 +91,7 @@ export class MisReservasComponent implements OnInit {
       numero_reserva: 'RSV-JKL012',
       entrenador: {
         nombre: 'David Martínez',
-        foto_url: 'assets/images/avatar-default.png',
+        foto_url: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=200&h=200&fit=crop&crop=face',
         especialidad: 'Boxeo'
       },
       fecha: new Date(2025, 9, 28),
@@ -108,7 +108,7 @@ export class MisReservasComponent implements OnInit {
       numero_reserva: 'RSV-MNO345',
       entrenador: {
         nombre: 'Ana Pérez García',
-        foto_url: 'assets/images/avatar-default.png',
+        foto_url: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&h=200&fit=crop&crop=face',
         especialidad: 'Yoga & Pilates'
       },
       fecha: new Date(2025, 9, 15),

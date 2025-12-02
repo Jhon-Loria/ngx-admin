@@ -48,7 +48,7 @@ export class AgendarSesionComponent implements OnInit {
     {
       id: 1,
       nombre_completo: 'Ana Pérez García',
-      foto_url: 'assets/images/avatar-default.png',
+      foto_url: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&h=200&fit=crop&crop=face',
       especialidad: 'Yoga & Pilates',
       tarifa_por_hora: 30,
       calificacion: 4.8,
@@ -57,7 +57,7 @@ export class AgendarSesionComponent implements OnInit {
     {
       id: 2,
       nombre_completo: 'Carlos Ruiz López',
-      foto_url: 'assets/images/avatar-default.png',
+      foto_url: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&h=200&fit=crop&crop=face',
       especialidad: 'CrossFit & Funcional',
       tarifa_por_hora: 35,
       calificacion: 4.9,
@@ -66,7 +66,7 @@ export class AgendarSesionComponent implements OnInit {
     {
       id: 3,
       nombre_completo: 'María González',
-      foto_url: 'assets/images/avatar-default.png',
+      foto_url: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=200&h=200&fit=crop&crop=face',
       especialidad: 'Running & Atletismo',
       tarifa_por_hora: 25,
       calificacion: 4.7,

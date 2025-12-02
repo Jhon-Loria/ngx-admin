@@ -30,11 +30,21 @@
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
-.entrenador-avatar img {
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  object-fit: cover;
+.entrenador-avatar {
+  flex-shrink: 0;
+  
+  img {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #edf1f7;
+    transition: border-color 0.2s ease;
+  }
+}
+
+.reserva-card:hover .entrenador-avatar img {
+  border-color: #3366ff;
 }
 
 .reserva-header {

@@ -65,7 +65,7 @@ export class ClienteDashboardComponent implements OnInit {
       fecha_hora: new Date('2025-11-15T10:00:00'),
       entrenador: {
         nombre: 'Ana Pérez',
-        foto: 'assets/images/avatar-default.png'
+        foto: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&h=200&fit=crop&crop=face'
       },
       deporte: 'Yoga',
       duracion: 60,
@@ -77,7 +77,7 @@ export class ClienteDashboardComponent implements OnInit {
       fecha_hora: new Date('2025-11-18T16:00:00'),
       entrenador: {
         nombre: 'Carlos Ruiz',
-        foto: 'assets/images/avatar-default.png'
+        foto: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&h=200&fit=crop&crop=face'
       },
       deporte: 'CrossFit',
       duracion: 90,
@@ -95,7 +95,7 @@ export class ClienteDashboardComponent implements OnInit {
       calificacion: 4.8,
       total_resenas: 45,
       tarifa_por_hora: 30,
-      foto_url: 'assets/images/avatar-default.png'
+      foto_url: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&h=200&fit=crop&crop=face'
     },
     {
       id: 2,
@@ -104,7 +104,7 @@ export class ClienteDashboardComponent implements OnInit {
       calificacion: 4.9,
       total_resenas: 67,
       tarifa_por_hora: 35,
-      foto_url: 'assets/images/avatar-default.png'
+      foto_url: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&h=200&fit=crop&crop=face'
     },
     {
       id: 3,
@@ -113,7 +113,7 @@ export class ClienteDashboardComponent implements OnInit {
       calificacion: 4.7,
       total_resenas: 32,
       tarifa_por_hora: 25,
-      foto_url: 'assets/images/avatar-default.png'
+      foto_url: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=200&h=200&fit=crop&crop=face'
     }
   ];
 

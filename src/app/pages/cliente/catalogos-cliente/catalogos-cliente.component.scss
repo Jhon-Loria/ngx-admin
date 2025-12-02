@@ -22,32 +22,39 @@
 
   .catalogo-imagen {
     width: 100%;
-    height: 200px;
+    height: 220px;
     overflow: hidden;
-    border-radius: 8px;
-    margin-bottom: 1rem;
+    border-radius: 8px 8px 0 0;
+    margin: -1rem -1rem 1rem -1rem;
     background: #f7f9fc;
+    position: relative;
 
     img {
       width: 100%;
       height: 100%;
       object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+
+    &:hover img {
+      transform: scale(1.05);
     }
   }
 
   .catalogo-imagen-placeholder {
     width: 100%;
-    height: 200px;
+    height: 220px;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: #f7f9fc;
-    border-radius: 8px;
-    margin-bottom: 1rem;
+    background: linear-gradient(135deg, #f7f9fc 0%, #edf1f7 100%);
+    border-radius: 8px 8px 0 0;
+    margin: -1rem -1rem 1rem -1rem;
 
     nb-icon {
       font-size: 4rem;
       color: #8f9bb3;
+      opacity: 0.5;
     }
   }
 
@@ -100,9 +107,12 @@
 nb-card {
   height: 100%;
   transition: box-shadow 0.3s ease;
+  overflow: hidden;
+  border: 1px solid #edf1f7;
 
   &:hover {
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    border-color: #e4e9f2;
   }
 }
 

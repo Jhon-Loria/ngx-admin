@@ -86,7 +86,7 @@ export class CatalogosClienteComponent implements OnInit {
         nombre: 'Plan de Entrenamiento Personalizado',
         descripcion: 'Plan de entrenamiento diseñado específicamente para tus objetivos y nivel de condición física.',
         categoria: 'servicios',
-        imagen_url: 'https://via.placeholder.com/300x200?text=Plan+Entrenamiento',
+        imagen_url: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=300&fit=crop',
         precio: 99.99,
         disponible: true,
         fecha_creacion: new Date('2025-01-01')
@@ -96,7 +96,7 @@ export class CatalogosClienteComponent implements OnInit {
         nombre: 'Kit de Pesas Ajustables',
         descripcion: 'Set completo de pesas ajustables de 2.5kg a 25kg, perfectas para entrenamiento en casa.',
         categoria: 'equipamiento',
-        imagen_url: 'https://via.placeholder.com/300x200?text=Pesas',
+        imagen_url: 'https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?w=400&h=300&fit=crop',
         precio: 149.99,
         disponible: true,
         fecha_creacion: new Date('2025-01-02')
@@ -106,7 +106,7 @@ export class CatalogosClienteComponent implements OnInit {
         nombre: 'Proteína Whey Premium',
         descripcion: 'Proteína de suero de leche de alta calidad, 2kg. Sabor chocolate.',
         categoria: 'suplementos',
-        imagen_url: 'https://via.placeholder.com/300x200?text=Proteina',
+        imagen_url: 'https://images.unsplash.com/photo-1556910103-1c02745aae4d?w=400&h=300&fit=crop',
         precio: 49.99,
         disponible: true,
         fecha_creacion: new Date('2025-01-03')
@@ -116,7 +116,7 @@ export class CatalogosClienteComponent implements OnInit {
         nombre: 'Clases de Yoga Online',
         descripcion: 'Acceso ilimitado a clases de yoga en línea durante 1 mes.',
         categoria: 'servicios',
-        imagen_url: 'https://via.placeholder.com/300x200?text=Yoga',
+        imagen_url: 'https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=400&h=300&fit=crop',
         precio: 29.99,
         disponible: true,
         fecha_creacion: new Date('2025-01-04')
@@ -126,7 +126,7 @@ export class CatalogosClienteComponent implements OnInit {
         nombre: 'Camiseta Deportiva Técnica',
         descripcion: 'Camiseta transpirable y ligera, ideal para running y entrenamientos intensos.',
         categoria: 'ropa',
-        imagen_url: 'https://via.placeholder.com/300x200?text=Camiseta',
+        imagen_url: 'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=400&h=300&fit=crop',
         precio: 24.99,
         disponible: true,
         fecha_creacion: new Date('2025-01-05')
@@ -136,7 +136,7 @@ export class CatalogosClienteComponent implements OnInit {
         nombre: 'Programa de CrossFit Avanzado',
         descripcion: 'Programa completo de 12 semanas para atletas avanzados de CrossFit.',
         categoria: 'deportes',
-        imagen_url: 'https://via.placeholder.com/300x200?text=CrossFit',
+        imagen_url: 'https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=400&h=300&fit=crop',
         precio: 79.99,
         disponible: true,
         fecha_creacion: new Date('2025-01-06')

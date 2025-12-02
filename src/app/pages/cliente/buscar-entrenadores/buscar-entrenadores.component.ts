@@ -81,7 +81,7 @@ export class BuscarEntrenadoresComponent implements OnInit {
     {
       id: 1,
       nombre_completo: 'Ana Pérez García',
-      foto_url: 'assets/images/avatar-default.png',
+      foto_url: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&h=200&fit=crop&crop=face',
       especialidad: 'Yoga & Pilates',
       deportes: ['Yoga', 'Pilates'],
       calificacion: 4.8,
@@ -98,7 +98,7 @@ export class BuscarEntrenadoresComponent implements OnInit {
     {
       id: 2,
       nombre_completo: 'Carlos Ruiz López',
-      foto_url: 'assets/images/avatar-default.png',
+      foto_url: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&h=200&fit=crop&crop=face',
       especialidad: 'CrossFit & Funcional',
       deportes: ['CrossFit', 'Funcional'],
       calificacion: 4.9,
@@ -115,7 +115,7 @@ export class BuscarEntrenadoresComponent implements OnInit {
     {
       id: 3,
       nombre_completo: 'María González',
-      foto_url: 'assets/images/avatar-default.png',
+      foto_url: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=200&h=200&fit=crop&crop=face',
       especialidad: 'Running & Atletismo',
       deportes: ['Running', 'Atletismo'],
       calificacion: 4.7,
@@ -132,7 +132,7 @@ export class BuscarEntrenadoresComponent implements OnInit {
     {
       id: 4,
       nombre_completo: 'David Martínez',
-      foto_url: 'assets/images/avatar-default.png',
+      foto_url: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=200&h=200&fit=crop&crop=face',
       especialidad: 'Boxeo & Artes Marciales',
       deportes: ['Boxeo', 'Kickboxing'],
       calificacion: 4.9,
@@ -149,7 +149,7 @@ export class BuscarEntrenadoresComponent implements OnInit {
     {
       id: 5,
       nombre_completo: 'Laura Sánchez',
-      foto_url: 'assets/images/avatar-default.png',
+      foto_url: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=200&h=200&fit=crop&crop=face',
       especialidad: 'Natación',
       deportes: ['Natación'],
       calificacion: 4.6,
@@ -166,7 +166,7 @@ export class BuscarEntrenadoresComponent implements OnInit {
     {
       id: 6,
       nombre_completo: 'Javier Torres',
-      foto_url: 'assets/images/avatar-default.png',
+      foto_url: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&h=200&fit=crop&crop=face',
       especialidad: 'Ciclismo & Spinning',
       deportes: ['Ciclismo', 'Spinning'],
       calificacion: 4.8,
