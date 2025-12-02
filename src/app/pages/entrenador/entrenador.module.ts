@@ -30,7 +30,8 @@ import {
   NbDialogModule,
   NbToggleModule,
   NbCalendarModule,
-  NbCalendarRangeModule
+  NbCalendarRangeModule,
+  NbToastrModule
 } from '@nebular/theme';
 
 @NgModule({
@@ -67,7 +68,8 @@ import {
     NbDialogModule.forChild(),
     NbToggleModule,
     NbCalendarModule,
-    NbCalendarRangeModule
+    NbCalendarRangeModule,
+    NbToastrModule.forRoot()
   ]
 })
 export class EntrenadorModule { }

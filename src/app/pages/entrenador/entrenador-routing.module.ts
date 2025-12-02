@@ -21,6 +21,11 @@ const routes: Routes = [
     component: CalendarioDisponibilidadComponent
   },
   {
+    path: 'calendario-disponibilidad',
+    redirectTo: 'calendario',
+    pathMatch: 'full'
+  },
+  {
     path: 'mis-clientes',
     component: MisClientesComponent
   },

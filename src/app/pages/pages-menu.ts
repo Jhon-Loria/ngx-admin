@@ -79,7 +79,7 @@ const ENTRENADOR_MENU: NbMenuItem[] = [
   {
     title: 'Calendario Disponibilidad',
     icon: 'clock-outline',
-    link: '/pages/entrenador/calendario-disponibilidad',
+    link: '/pages/entrenador/calendario',
   },
   {
     title: 'Mis Ingresos',
