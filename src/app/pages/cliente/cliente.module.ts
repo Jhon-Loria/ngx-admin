@@ -8,6 +8,7 @@ import { MisReservasComponent } from './mis-reservas/mis-reservas.component';
 import { MisPagosComponent } from './mis-pagos/mis-pagos.component';
 import { MisResenasComponent } from './mis-resenas/mis-resenas.component';
 import { PerfilClienteComponent } from './perfil-cliente/perfil-cliente.component';
+import { CatalogosClienteComponent } from './catalogos-cliente/catalogos-cliente.component';
 
 // Nebular Modules
 import {
@@ -42,6 +43,7 @@ import { ClienteRoutingModule } from './cliente-routing.module';
     MisReservasComponent,
     MisPagosComponent,
     MisResenasComponent,
+    CatalogosClienteComponent,
     PerfilClienteComponent
   ],
   imports: [

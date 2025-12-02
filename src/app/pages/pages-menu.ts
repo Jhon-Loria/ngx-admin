@@ -38,6 +38,11 @@ const CLIENTE_MENU: NbMenuItem[] = [
     link: '/pages/cliente/mis-resenas',
   },
   {
+    title: 'Catálogos',
+    icon: 'book-outline',
+    link: '/pages/cliente/catalogos',
+  },
+  {
     title: 'Mi Perfil',
     icon: 'person-outline',
     link: '/pages/cliente/perfil',

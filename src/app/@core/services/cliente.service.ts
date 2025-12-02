@@ -71,4 +71,13 @@ export class ClienteService {
   getDashboardStats(): Observable<any> {
     return this.api.get('/cliente/dashboard');
   }
+
+  // Catálogos
+  getCatalogos(): Observable<any> {
+    return this.api.get('/cliente/catalogos');
+  }
+
+  getCatalogo(id: number): Observable<any> {
+    return this.api.get(`/cliente/catalogos/${id}`);
+  }
 }
